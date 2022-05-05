@@ -1,26 +1,35 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import About from "./components/pages/About/About";
 import Blogs from "./components/pages/Blogs/Blogs";
 import Home from "./components/pages/Home/Home";
+import Inventory from "./components/pages/Inventory/Inventory";
+import Login from "./components/pages/Login/Login";
 import NotFound from "./components/pages/NotFound/NotFound";
+import Signup from "./components/pages/Signup/Signup";
+import Footer from "./components/Shared/Footer/Footer";
 import WareNav from "./components/Shared/WareNav/WareNav";
-import auth from "./firebase.init";
 
 function App() {
-  console.log(auth.config);
   return (
-    <>
-    <WareNav/>
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/home" element={<Home />} />
-      <Route path="/blogs" element={<Blogs />} />
-      <Route path="/inventory" element={<Blogs />} />
-      <Route path="/blogs" element={<Blogs />} />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
-
-    </>
+    <main >
+      <div className="max-w-[95vw] mx-auto">
+        <div className="flex flex-col min-h-[75vh]">
+          <WareNav />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/blogs" element={<Blogs />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/inventory" element={<Inventory />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </div>
+        <Footer />
+      </div>
+    </main>
   );
 }
 

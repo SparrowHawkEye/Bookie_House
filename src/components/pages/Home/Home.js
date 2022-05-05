@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import PageTitle from "../../Shared/PageTitle/PageTitle";
+import Banner from "../Banner/Banner";
 
 const Home = () => {
   // const [products, setProducts] = useState([]);
   return (
-    <div>
+    <div className="">
       <PageTitle title="Home"/>
-      <h2>This is Home Page</h2>
+      <Banner/>
     </div>
   );
 };
