@@ -9,6 +9,8 @@ import NotFound from "./components/pages/NotFound/NotFound";
 import Signup from "./components/pages/Signup/Signup";
 import Footer from "./components/Shared/Footer/Footer";
 import WareNav from "./components/Shared/WareNav/WareNav";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -29,6 +31,7 @@ function App() {
         </div>
         <Footer />
       </div>
+      <ToastContainer/>
     </main>
   );
 }
