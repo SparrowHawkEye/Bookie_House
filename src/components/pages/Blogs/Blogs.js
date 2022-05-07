@@ -4,95 +4,144 @@ import { Accordion } from "flowbite-react";
 
 const Blogs = () => {
   return (
-    <div className='w-11/12 mx-auto'>
+    <div className="w-11/12 mx-auto">
       <PageTitle title="Blogs" />
 
-      <Accordion flush={true} >
+      <Accordion flush={true}>
         <Accordion.Panel open={true}>
           <Accordion.Title arrowIcon={undefined}>
-            What is Flowbite?
+            Difference between Javascript and NodeJS?
           </Accordion.Title>
           <Accordion.Content>
             <p className="mb-2 text-gray-500 dark:text-gray-400">
-              Flowbite is an open-source library of interactive components built
-              on top of Tailwind CSS including buttons, dropdowns, modals,
-              navbars, and more.
+              JavaScript is a popular language which runs inside website
+              browsers as part of documents loaded by that browser. It gives
+              behaviour to the web pages. On the other hand NodeJS usually
+              represents a collection of methods and objects available to the
+              JavaScript code when run in V8 or through the node interpreter.
+              This is a JS library cum runtime.
             </p>
-            <p className="text-gray-500 dark:text-gray-400">
-              Check out this guide to learn how to{" "}
-              <a
-                href="https://flowbite.com/docs/getting-started/introduction/"
-                className="text-blue-600 hover:underline dark:text-blue-500"
-              >
-                get started
-              </a>{" "}
-              and start developing websites even faster with components on top
-              of Tailwind CSS.
+            <p className="mb-2 text-gray-500 dark:text-gray-400">
+              Javascript is mainly used for any client side activity for the web
+              application. On the other hand NodeJS is used for performing or
+              accessing any non-blocking operation of operating system, like
+              executing or creating a shell script or accessing the hardware
+              specific information or running any job in the backend.
+            </p>
+            <p className="mb-2 text-gray-500 dark:text-gray-400">
+              JavaScript running any engine like JavaScript Core (Safari),
+              Spider monkey (FireFox), V8 (Google Chrome). On the other hand
+              Node.js only runs in a V8 engine that is mainly used by Google
+              Chrome. And, JS program which will be written with the help of
+              Node.js library will always run in the V8 Engine.
             </p>
           </Accordion.Content>
         </Accordion.Panel>
         <Accordion.Panel>
           <Accordion.Title arrowIcon={undefined}>
-            Is there a Figma file available?
+            Differences between SQL and NoSQL databases.
           </Accordion.Title>
           <Accordion.Content>
             <p className="mb-2 text-gray-500 dark:text-gray-400">
-              Flowbite is first conceptualized and designed using the Figma
-              software so everything you see in the library has a design
-              equivalent in our Figma file.
+              <span className="font-semibold my-3 text-gray-800 mr-2 text-lg">
+                SQL:
+              </span>
+              Structured Query Language or SQL is a standard Database language
+              which is used to create, maintain and retrieve the data from
+              relational databases like MySQL, Oracle, SQL Server, PostGre, etc.
             </p>
-            <p className="text-gray-500 dark:text-gray-400">
-              Check out the{" "}
-              <a
-                href="https://flowbite.com/figma/"
-                className="text-blue-600 hover:underline dark:text-blue-500"
-              >
-                Figma design system
-              </a>{" "}
-              based on the utility classes from Tailwind CSS and components from
-              Flowbite.
+
+            <p className="mb-2 text-gray-500 dark:text-gray-400">
+              <span className="font-semibold my-3 text-gray-800 mr-2 text-lg">
+                NoSQL:
+              </span>
+              A NoSQL originally referring to non SQL or non relational is a
+              database that provides a mechanism for storage and retrieval of
+              data.
             </p>
+            <p className="mb-2 text-gray-500 dark:text-gray-400">
+              <span className="font-semibold my-3 text-gray-800 mr-2 text-lg">
+                Differences:
+              </span>
+              Some of the main differences between these two are given below:
+            </p>
+            <ol className="my-3 space-y-3 text-gray-500 dark:text-gray-400 ml-4">
+              <li>
+                <span className="font-bold text-lg">1</span>. SQL databases are
+                relational, NoSQL databases are non-relational.
+              </li>
+              <li>
+                <span className="font-bold text-lg">2</span>. SQL databases use
+                structured query language and have a predefined schema. NoSQL
+                databases have dynamic schemas for unstructured data.
+              </li>
+              <li>
+                <span className="font-bold text-lg">3</span>. SQL databases are
+                vertically scalable, while NoSQL databases are horizontally
+                scalable.
+              </li>
+              <li>
+                <span className="font-bold text-lg">4</span>. SQL databases are
+                table-based, while NoSQL databases are document, key-value,
+                graph, or wide-column stores.
+              </li>
+              <li>
+                <span className="font-bold text-lg">3</span>. SQL databases are
+                better for multi-row transactions, while NoSQL is better for
+                unstructured data like documents or JSON.
+              </li>
+            </ol>
           </Accordion.Content>
         </Accordion.Panel>
         <Accordion.Panel>
           <Accordion.Title arrowIcon={undefined}>
-            What are the differences between Flowbite and Tailwind UI?
+            What is the purpose of jwt and how does it work?
           </Accordion.Title>
           <Accordion.Content>
             <p className="mb-2 text-gray-500 dark:text-gray-400">
-              The main difference is that the core components from Flowbite are
-              open source under the MIT license, whereas Tailwind UI is a paid
-              product. Another difference is that Flowbite relies on smaller and
-              standalone components, whereas Tailwind UI offers sections of
-              pages.
+              JSON Web Token (JWT) is a compact and self-contained way for
+              securely transmitting information between parties as a JSON
+              object. This information can be verified and trusted because it is
+              digitally signed. JWTs can be signed using a secret or a
+              public/private key
+            </p>
+            <h3 className="font-semibold my-3 text-lg">Purpose of JWT:</h3>
+            <p className="mb-2 text-gray-500 dark:text-gray-400">
+              The most common scenario for using JWT is for authorization. Once
+              the user is logged in, each subsequent request will include the
+              JWT, allowing the user to access routes, services, and resources
+              that are permitted with that token.
             </p>
             <p className="mb-2 text-gray-500 dark:text-gray-400">
-              However, we actually recommend using both Flowbite, Flowbite Pro,
-              and even Tailwind UI as there is no technical reason stopping you
-              from using the best of two worlds.
+              JSON Web Tokens are a good way of securely transmitting
+              information between parties. Because JWTs can be signed using a
+              secret or a public/private key pairs. You can be sure the senders
+              are who they say they are. Additionally, as the signature is
+              calculated using the header and the payload, you can also verify
+              that the content hasn't been tampered with.
             </p>
-            <p className="mb-2 text-gray-500 dark:text-gray-400">
-              Learn more about these technologies:
-            </p>
-            <ul className="list-disc pl-5 text-gray-500 dark:text-gray-400">
+            <h3 className="font-semibold my-3 text-lg">How JWT works:</h3>
+            {/* <p className="mb-2 text-gray-500 dark:text-gray-400">In authentication, when the user successfully logs in using their credentials, a JSON Web Token will be returned. As the token is private credential this token need to be kept secret to prevent security issue by keeping them for a shorter time it's need. Whenever the user wants to access a protected route or resource, the user agent should send the JWT, typically in the Authorization header using the Bearer schema. The content of the header should look like the following: <br /><code className="p-2 mx-auto inline-block my-3 bg-gray-100 rounded-lg">Authorization: Bearer 'token'</code><br /> This can be, in certain cases, a stateless authorization mechanism. The server's protected routes will check for a valid JWT in the Authorization header, and if it's present, the user will be allowed to access protected resources. If the JWT contains the necessary data, the need to query the database for certain operations may be reduced, though this may not always be the case.</p> */}
+            <ol className="mb-2 space-y-3 text-gray-500 dark:text-gray-400">
               <li>
-                <a
-                  href="https://flowbite.com/pro/"
-                  className="text-blue-600 hover:underline dark:text-blue-500"
-                >
-                  Flowbite Pro
-                </a>
+                <span className="font-bold text-lg">1</span>. The application or
+                client requests authorization to the authorization server. This
+                is performed through one of the different authorization flows.
+                For example, a typical OpenID Connect compliant web application
+                will go through the /oauth/authorize endpoint using the
+                authorization code flow.
               </li>
               <li>
-                <a
-                  href="https://tailwindui.com/"
-                  rel="nofollow"
-                  className="text-blue-600 hover:underline dark:text-blue-500"
-                >
-                  Tailwind UI
-                </a>
+                <span className="font-bold text-lg">2</span>. When the
+                authorization is granted, the authorization server returns an
+                access token to the application.
               </li>
-            </ul>
+              <li>
+                <span className="font-bold text-lg">3</span>. The application
+                uses the access token to access a protected resource (like an
+                API).
+              </li>
+            </ol>
           </Accordion.Content>
         </Accordion.Panel>
       </Accordion>

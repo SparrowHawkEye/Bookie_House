@@ -1,10 +1,13 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { BiBookBookmark } from "react-icons/bi";
+import { signOut } from "firebase/auth";
+import auth from "../../../firebase.init";
+import { useAuthState } from "react-firebase-hooks/auth";
+import userImg from "../../../assets/user.png"
 
 const WareNav = () => {
-  // const [user] = useAuthState(auth);
-  let user;
+  const [user] = useAuthState(auth);
   let activeStyle = {
     // textDecoration: "underline",
     color: "#0EA5E9",
@@ -18,13 +21,22 @@ const WareNav = () => {
         <div className="flex items-center md:order-2">
           <button
             type="button"
-            className="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+            className="flex mr-3 text-md font-bold text-white align-middle text-center bg-blue-300 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
             id="user-menu-button"
             aria-expanded="false"
             data-dropdown-toggle="dropdown"
           >
             <span className="sr-only">Open user menu</span>
-            <img className="w-8 h-8 rounded-full" src={user} alt={user?.name} />
+            <div className="w-8 h-8 rounded-full">
+              {" "}
+              {user ? (
+                <p className="text-center text">
+                  {user?.user_name?.substring(0, 1)}
+                </p>
+              ) : (
+                <img src={userImg} alt="" />
+              )}{" "}
+            </div>
           </button>
           <div
             className="hidden z-50 my-4 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"
@@ -51,7 +63,7 @@ const WareNav = () => {
               {user ? (
                 <li>
                   <Link
-                    // onClick={() => signOut(auth)}
+                    onClick={() => signOut(auth)}
                     to="/"
                     className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                   >

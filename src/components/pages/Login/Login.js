@@ -30,14 +30,13 @@ const Login = () => {
 
   const [signInWithEmail, user, loading, hookError] =
     useSignInWithEmailAndPassword(auth);
-  const [signInWithGoogle, errorGoogle] = useSignInWithGoogle(auth);
-  const [signInWithGitHub, errorGithub] = useSignInWithGithub(auth);
+  const [signInWithGoogle, userGoogle, errorGoogle] = useSignInWithGoogle(auth);
+  const [signInWithGitHub, userGithub, errorGithub] = useSignInWithGithub(auth);
   const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
 
   const handleEmail = (e) => {
     const emailRegex = /\S+@\S+\.\S+/;
     const validEmail = emailRegex.test(e.target.value);
-    
 
     if (validEmail) {
       setUserInfo({ ...userInfo, email: e.target.value });
@@ -72,10 +71,10 @@ const Login = () => {
   let from = location.state?.from?.pathname || "/";
 
   useEffect(() => {
-    if (user) {
+    if (user || userGoogle || userGithub) {
       navigate(from);
     }
-  }, [user]);
+  }, []);
 
   const resetPassword = async () => {
     const email = emailRef.current.value;
@@ -103,6 +102,7 @@ const Login = () => {
   if (loading) {
     return <Loading />;
   }
+  console.log(user, userGoogle, userGithub);
   return (
     <div className=" flex justify-center p-8 sm:px-6 lg:px-8 items-center">
       <PageTitle title="Login" />
@@ -117,10 +117,14 @@ const Login = () => {
         </div>
         <div className="flex flex-row justify-center items-center space-x-3">
           <span className="w-11 h-11 items-center justify-center inline-flex rounded-full font-bold text-lg  text-white  hover:bg-white hover:shadow-lg cursor-pointer transition ease-in duration-300">
-            <button onClick={() => signInWithGoogle()} ><FcGoogle size={"24px"} /></button>
+            <button onClick={() => signInWithGoogle()}>
+              <FcGoogle size={"24px"} />
+            </button>
           </span>
           <span className="w-11 h-11 items-center justify-center inline-flex rounded-full font-bold text-lg  text-black  hover:bg-gray-600 hover:text-white hover:shadow-lg cursor-pointer transition ease-in duration-300">
-            <button onClick={() => signInWithGitHub()} ><AiOutlineGithub  size={"24px"} /></button>
+            <button onClick={() => signInWithGitHub()}>
+              <AiOutlineGithub size={"24px"} />
+            </button>
           </span>
         </div>
         <div className="flex items-center justify-center space-x-2">

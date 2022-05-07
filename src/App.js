@@ -11,6 +11,7 @@ import Footer from "./components/Shared/Footer/Footer";
 import WareNav from "./components/Shared/WareNav/WareNav";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import MyItems from "./components/MyItems/MyItems";
 
 function App() {
   return (
@@ -23,9 +24,11 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/blogs" element={<Blogs />} />
             <Route path="/about" element={<About />} />
+            <Route path="/inventory" element={<Inventory />} />
+            <Route path="/additems" element={<Inventory />} />
+            <Route path="/myItems" element={<MyItems />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
-            <Route path="/inventory" element={<Inventory />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
