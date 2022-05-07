@@ -5,7 +5,7 @@ import Inventory from "../Inventory/Inventory";
 
 const Home = () => {
   return (
-    <div className="">
+    <div className="w-11/12 mx-auto">
       <PageTitle title="Home"/>
       <Banner/>
       <Inventory/>
