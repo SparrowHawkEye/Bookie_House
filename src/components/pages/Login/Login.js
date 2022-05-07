@@ -74,7 +74,7 @@ const Login = () => {
     if (user || userGoogle || userGithub) {
       navigate(from);
     }
-  }, []);
+  }, [from, navigate, user, userGithub, userGoogle]);
 
   const resetPassword = async () => {
     const email = emailRef.current.value;

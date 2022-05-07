@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
-const HomeItem = ({homeItem}) => {
-  const {name,ISBN,publisher,author,no_of_page,quantity,img} = homeItem;
+const Item = ({item}) => {
+  const {name,ISBN,publisher,author,no_of_page,quantity,img,description} = item;
   return (
     <>
       <div className="card card-side bg-base-100 shadow-xl">
@@ -19,8 +19,9 @@ const HomeItem = ({homeItem}) => {
           <p>Quantity: {quantity}</p>
           <p>No of Pages: {no_of_page}</p>
           
-          <div className="flex justify-center card-actions">
-            <button className="btn btn-primary px-14 my-5">Manage Book</button>
+          <div className="card-actions">
+            <button className="btn btn-primary">Manage Book</button>
+            <button className="btn btn-error px-8 text-white">Delete</button>
           </div>
         </div>
       </div>
@@ -28,4 +29,4 @@ const HomeItem = ({homeItem}) => {
   );
 };
 
-export default HomeItem;
+export default Item;

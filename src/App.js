@@ -12,6 +12,7 @@ import WareNav from "./components/Shared/WareNav/WareNav";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import MyItems from "./components/MyItems/MyItems";
+import ManageItems from "./components/pages/ManageItems/ManageItems";
 
 function App() {
   return (
@@ -24,7 +25,7 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/blogs" element={<Blogs />} />
             <Route path="/about" element={<About />} />
-            <Route path="/inventory" element={<Inventory />} />
+            <Route path="/manageitems" element={<ManageItems />} />
             <Route path="/additems" element={<Inventory />} />
             <Route path="/myItems" element={<MyItems />} />
             <Route path="/login" element={<Login />} />
