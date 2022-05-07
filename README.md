@@ -6,20 +6,20 @@ We have a sample task for you.
 
 ## Website Purpose:
 
-1. Your website must be related to multiple items warehouse/inventory management websites. Some examples of inventory management could be: managing inventory of any types of products like- grocery stock, spice warehouse, fruits warehouse, books, perfumes, dresses, gym equipment, bikes, electronics (TV, fridge, microwave, laptop, computer, smartphone, etc.), furniture, hiking gears, sports gear, outdoor camping gears, Vehicle/fleet inventory (car, truck, motor bike, bicycle), toys, etc. However, your website can not be a ticket selling or an e-commerce site.
+1. Your website must be related to multiple items warehouse/inventory management websites. Some examples of inventory management could be: managing inventory of any types of products like- grocery stock, spice warehouse, fruits warehouse, books, perfumes, dresses, gym equipment, bikes, electronics (TV, fridge, microwave, laptop, computer, smartphone, etc.), furniture, hiking gears, sports gear, outdoor camping gears, Vehicle/fleet inventory (car, truck, motor bike, bicycle), toys, etc. However, your website can not be a ticket selling or an e-commerce site. ✅
 
-2. Make sure your design and website idea are unique. First, finalize your idea (what website you want to build). Then google the site design or visit themeforest to get your website idea. However, your website can not be related to your previous assignments or any practice project displayed in the course or our conceptual sessions.
-3. Make sure your code or design doesn't match any of the projects implemented in our course.
-4. You may include this assignment in your final resume, so make sure they are good-looking. And we will have some dedicated marks for the design. Just pay some attention to the design.
-5. Initially, do not spend too much thinking about the design. Just spend 5-10 minutes to finalize the idea. Another 15-30 minutes to search for a similar website design and start working on the project. If needed, put a placeholder image and keep developing the functionalities. Once the functionalities are implemented, come back to add relevant images.
+2. Make sure your design and website idea are unique. First, finalize your idea (what website you want to build). Then google the site design or visit themeforest to get your website idea. However, your website can not be related to your previous assignments or any practice project displayed in the course or our conceptual sessions. ✅
+3. Make sure your code or design doesn't match any of the projects implemented in our course. ✅
+4. You may include this assignment in your final resume, so make sure they are good-looking. And we will have some dedicated marks for the design. Just pay some attention to the design. ✅
+5. Initially, do not spend too much thinking about the design. Just spend 5-10 minutes to finalize the idea. Another 15-30 minutes to search for a similar website design and start working on the project. If needed, put a placeholder image and keep developing the functionalities. Once the functionalities are implemented, come back to add relevant images. ✅
 
 ### Task Details:
 
-1. Home page will have a header (simple navbar), banner, items (inventory items that you are managing. Maximum 6 items), and footer.
+1. Home page will have a header (simple navbar), banner, items (inventory items that you are managing. Maximum 6 items), and footer. ✅
 
 2. Add two extra sections on the home page and the four sections mentioned above. Tips: This is the place to shine. Add something different and unique to make your website looks different than others. And Make them relevant to your website.
 
-3. You will have six items in the inventory items section. You can put one or more items in a row based on your design. Each article should have a relevant name, image, short description, price, quantity, supplier name, and an update button (button could say: update or manage or stock update, etc.).
+3. You will have six items in the inventory items section. You can put one or more items in a row based on your design. Each article should have a relevant name, image, short description, price, quantity, supplier name, and an update button (button could say: update or manage or stock update, etc.). ✅
 
 4. Clicking on the button will take the user to the `inventory/:id` route. This route will be a private/protected route. Please make sure that the private route redirects to the login page if the user is not logged in. After login, the user will be redirected to the page he/she wanted to go to. Also, after reloading the page of a private route, the user is not redirected to the login page.
 
@@ -37,8 +37,8 @@ We have a sample task for you.
 
 11. On the My Items page, the logged-in user will see only his/her Items. If the user wants, he/she should be able to cancel/delete any item. Ask for a confirmation message before deleting or canceling an item. Using browser confirmation dialog is ok. So, you will be able to delete an item either from the `Manage Inventories` page also, from the `My Items` page.
 
-12. No Fake data (data must be hosted on the database). Database could be mongodb atlas or any other noSQL database.
-13. Add two more routes. one route will be `blogs`. You will need to answer at least three questions on the blog page. This won't be a protected route. We recommend answering all four questions.
+12. No Fake data (data must be hosted on the database). Database could be mongodb atlas or any other noSQL database. ✅
+13. Add two more routes. one route will be `blogs`. You will need to answer at least three questions on the blog page. This won't be a protected route. We recommend answering all four questions. ✅
 
     13.1 Difference between `javascript` and `nodejs`
 
@@ -54,15 +54,15 @@ We have a sample task for you.
 
 1. Display error when user email address or password don't match.
 2. Send Email Verification. Don't worry if the email goes to the spam folder or it doesn't go at all. As long as your code is there, you will be fine. Add a link for Password reset (use toast)
-3. At least 12 meaningful GitHub commits for the client-side and at least 6 meaningful commits for the server-side repository.
-4. Meaningful `readme.md` file containing your website name, a short description, link to your live site. And at least five bullet points mention your website's different features and functionality.
-5. Make the website responsive. Make sure the site looks different on desktop and mobile responsive. Tablet responsive is optional
-6. Make the website meaningful and consistent in look and feel. Give your website a relevant name. Images and all the content of the website have to be relevant. No `lorem ipsum` please.
-7. Clean and organized Code. Organize components and add comments when needed
+3. At least 12 meaningful GitHub commits for the client-side and at least 6 meaningful commits for the server-side repository. ✅
+4. Meaningful `readme.md` file containing your website name, a short description, link to your live site. And at least five bullet points mention your website's different features and functionality. ✅
+5. Make the website responsive. Make sure the site looks different on desktop and mobile responsive. Tablet responsive is optional. ✅
+6. Make the website meaningful and consistent in look and feel. Give your website a relevant name. Images and all the content of the website have to be relevant. No `lorem ipsum` please. ✅
+7. Clean and organized Code. Organize components and add comments when needed. ✅
 8. Add a loading spinner on the home page and the login/register page. If data is loading, a spinner will be displayed.
-9. use the Environment variable on both the client and server-side. `.env` file hides db user and db password and another server-side secret info. Use .gitignore file on the server-side.
+9. use the Environment variable on both the client and server-side. `.env` file hides db user and db password and another server-side secret info. Use .gitignore file on the server-side. ✅
 10. Implement the basic version of the `jwt` token for email/password based authentication. Upon login, you will create a jwt token and store it on the client-side, and for the `My Items` page, you will send the token with the call and verify the user. Implementing 401 and 403 is optional. For social login, jwt token implementation is optional.
-11. Create a `stackoverflow` profile and post a question or an answer at the time of submitting your assignment. You will submit the link to the stackoverflow question. If you do not want to add a question, you can add an answer on stackoverflow. If you can't add a stackoverflow question/answer, you can submit a github issue to any library that you are using. Your question or answer has to be a meaningful question or answer.
+11. Create a `stackoverflow` profile and post a question or an answer at the time of submitting your assignment. You will submit the link to the stackoverflow question. If you do not want to add a question, you can add an answer on stackoverflow. If you can't add a stackoverflow question/answer, you can submit a github issue to any library that you are using. Your question or answer has to be a meaningful question or answer. ✅
 
 ### Optional but highly encourage:
 
@@ -72,7 +72,7 @@ We have a sample task for you.
 
 ## Optional
 
-1. Add some animation while applicable.
+1. Add some animation while applicable.✅
 2. Please Use icons whenever applicable and use fonts (google fonts). For example, for delete, you can use the delete icon. To add an item, you can use an add icon.
 3. Make the footer a little more realistic
 4. Optimize your images
