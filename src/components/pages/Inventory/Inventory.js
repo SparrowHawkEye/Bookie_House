@@ -15,7 +15,7 @@ const Inventory = () => {
       </h2>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4" >
         {homeItems.map((homeItem) => (
-          <HomeItem key={homeItem.ISBN} homeItem={homeItem} />
+          <HomeItem key={homeItem._id} homeItem={homeItem} />
         ))}
       </div>
       <div className="flex justify-center my-5">
