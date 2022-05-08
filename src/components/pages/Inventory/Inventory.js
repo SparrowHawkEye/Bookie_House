@@ -5,7 +5,7 @@ import HomeItem from "../Home/HomeItem/HomeItem";
 
 const Inventory = () => {
   const [items] = useItems([]);
-  const homeItems = items.slice(0, 6);
+  const homeItems = items.slice(5, 11);
   console.log(items);
   console.log(homeItems);
   return (
@@ -21,6 +21,9 @@ const Inventory = () => {
       <div className="flex justify-center my-5">
         <Link to="/manageItems" className="btn btn-primary px-10 py-3">
           See All Books
+        </Link>
+        <Link to="/addItems" className="btn btn-success text-white px-10 py-3 ml-5">
+          Add Books
         </Link>
       </div>
     </div>

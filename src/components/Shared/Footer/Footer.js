@@ -36,8 +36,9 @@ const Footer = () => {
       <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">
         © 2022{" "}
         <Link to="https://flowbite.com" className="hover:underline">
-          Flowbite™
+          Bookie House
         </Link>
+        <small className="ml-3">by SparrowHawkEye</small>
         . All Rights Reserved.
       </span>
     </footer>

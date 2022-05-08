@@ -1,115 +1,82 @@
-import React, { useEffect, useRef, useState } from "react";
+// import axios from "axios";
+import React, { useRef, useState } from "react";
+// import { Button, Form } from "react-bootstrap";
 import {
   useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
-  useSignInWithGoogle,
   useSignInWithGithub,
+  useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
-import PageTitle from "../../Shared/PageTitle/PageTitle";
 import auth from "../../../firebase.init";
+
 import { FcGoogle } from "react-icons/fc";
 import { AiFillEye, AiFillEyeInvisible, AiOutlineGithub } from "react-icons/ai";
-import Loading from "../../Shared/Loading/Loading";
+import PageTitle from "../../Shared/PageTitle/PageTitle";
+import useToken from "../../hooks/useToken";
+
 
 const Login = () => {
-  console.log(auth);
-  const [userInfo, setUserInfo] = useState({
-    email: "",
-    password: "",
-    confirmPassword: "",
-  });
-  const [errors, setErrors] = useState({
-    email: "",
-    password: "",
-    general: "",
-  });
-
-  const [showPass, setShowPass] = useState(false);
-
-  const [signInWithEmail, user, loading, hookError] =
-    useSignInWithEmailAndPassword(auth);
-  const [signInWithGoogle, userGoogle, errorGoogle] = useSignInWithGoogle(auth);
-  const [signInWithGitHub, userGithub, errorGithub] = useSignInWithGithub(auth);
-  const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
-
-  const handleEmail = (e) => {
-    const emailRegex = /\S+@\S+\.\S+/;
-    const validEmail = emailRegex.test(e.target.value);
-
-    if (validEmail) {
-      setUserInfo({ ...userInfo, email: e.target.value });
-      setErrors({ ...errors, email: "" });
-    } else {
-      setErrors({ ...errors, email: "Invalid email" });
-      setUserInfo({ ...userInfo, email: "" });
-    }
-  };
-  const handlePassword = (e) => {
-    const passwordRegex = /.{6,}/;
-    const validPassword = passwordRegex.test(e.target.value);
-
-    if (validPassword) {
-      setUserInfo({ ...userInfo, password: e.target.value });
-      setErrors({ ...errors, password: "" });
-    } else {
-      setErrors({ ...errors, password: "Minimum 6 characters!" });
-      setUserInfo({ ...userInfo, password: "" });
-    }
-  };
   const emailRef = useRef("");
   const passwordRef = useRef("");
-
-  const handleLogin = (e) => {
-    e.preventDefault();
-    signInWithEmail(userInfo.email, userInfo.password);
-  };
-
   const navigate = useNavigate();
   const location = useLocation();
+  const [signInWithEmailAndPassword, user, error] =
+    useSignInWithEmailAndPassword(auth);
+  const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
+  const [token] = useToken(user);
   let from = location.state?.from?.pathname || "/";
+  const [signInWithGoogle, userGoogle, loadingGoogle, errorGoogle] =
+    useSignInWithGoogle(auth);
+  const [signInWithGithub, userGithub, loadingGithub, errorGithub] =
+    useSignInWithGithub(auth);
+    const [showPass, setShowPass] = useState(false);
+   let loadingElement;
+   let errorElement;
+  if (error || errorGoogle || errorGithub) {
+    errorElement = (
+      <p className="text-danger text-center">
+        Error: {error?.message}
+        {errorGoogle?.message}
+        {errorGithub?.message}
+      </p>
+    );
+  }
+  if (loadingGoogle || loadingGithub) {
+    loadingElement = <p className="text-warning text-center">Loading...</p>;
+  }
+  if (token) {
+    navigate(from, { replace: true });
+  }
 
-  useEffect(() => {
-    if (user || userGoogle || userGithub) {
-      navigate(from);
-    }
-  }, [from, navigate, user, userGithub, userGoogle]);
+  if (error) {
+    errorElement = (
+      <p className="text-danger text-center">Error: {error?.message}</p>
+    );
+  }
 
+  if (token) {
+    navigate(from, { replace: true });
+  }
+
+  const handleLogin = async (event) => {
+    event.preventDefault();
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+    await signInWithEmailAndPassword(email, password);
+  };
   const resetPassword = async () => {
     const email = emailRef.current.value;
     await sendPasswordResetEmail(email);
-    toast("Sent email");
+    alert("Sent email");
   };
-
-  useEffect(() => {
-    const error = hookError || errorGoogle || errorGithub;
-    if (error) {
-      switch (error?.code) {
-        case "auth/invalid-email":
-          toast("Invalid email provided, please provide a valid email");
-          break;
-
-        case "auth/invalid-password":
-          toast("Wrong password. Intruder!!");
-          break;
-        default:
-          toast("something went wrong");
-      }
-    }
-  }, [hookError, errorGoogle, errorGithub]);
-
-  if (loading) {
-    return <Loading />;
-  }
-  console.log(user, userGoogle, userGithub);
   return (
     <div className=" flex justify-center p-8 sm:px-6 lg:px-8 items-center">
       <PageTitle title="Login" />
       <div className="max-w-md w-full space-y-4 p-8 bg-gray-200 rounded-xl z-10">
         <div className="text-center">
           <h2 className="mt-6 text-3xl font-bold text-gray-900">
-            Welcom Back!
+            Welcome Back!
           </h2>
           <p className="mt-2 text-sm text-gray-600">
             Please sign in to your account
@@ -122,7 +89,7 @@ const Login = () => {
             </button>
           </span>
           <span className="w-11 h-11 items-center justify-center inline-flex rounded-full font-bold text-lg  text-black  hover:bg-gray-600 hover:text-white hover:shadow-lg cursor-pointer transition ease-in duration-300">
-            <button onClick={() => signInWithGitHub()}>
+            <button onClick={() => signInWithGithub()}>
               <AiOutlineGithub size={"24px"} />
             </button>
           </span>
@@ -142,7 +109,7 @@ const Login = () => {
               className=" w-full text-base py-2 px-3 rounded border-b border-gray-300 focus:outline-none focus:border-indigo-500"
               type="email"
               ref={emailRef}
-              onBlur={handleEmail}
+              // onBlur={handleEmail}
               placeholder="mail@gmail.com"
               required
             />
@@ -155,7 +122,7 @@ const Login = () => {
               className="w-full content-center text-base py-2 px-3 rounded border-b border-gray-300 focus:outline-none focus:border-indigo-500"
               type={showPass ? "text" : "password"}
               ref={passwordRef}
-              onBlur={handlePassword}
+              // onBlur={handlePassword}
               placeholder="Enter your password"
               required
             />

@@ -1,7 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Item = ({ item }) => {
   const {
+    _id,
     name,
     ISBN,
     publisher,
@@ -9,8 +11,11 @@ const Item = ({ item }) => {
     no_of_page,
     quantity,
     img,
-    description,
   } = item;
+  const navigate = useNavigate();
+  const navigateToItemDetails = (id) => {
+    navigate(`/item/${id}`);
+  };
   return (
     <>
       <div
@@ -25,7 +30,7 @@ const Item = ({ item }) => {
             alt="Book"
           />
         </figure>
-        <div className="card-body">
+        <div className="card-body p-[1rem]">
           <h2 className="card-title">Name: {name}</h2>
           <p>Author: {author}</p>
           <p>Publisher: {publisher}</p>
@@ -34,7 +39,7 @@ const Item = ({ item }) => {
           <p>No of Pages: {no_of_page}</p>
 
           <div className="card-actions" data-aos="zoom-out-down">
-            <button className="btn btn-primary">Manage Book</button>
+            <button onClick={()=>navigateToItemDetails(_id)} className="btn btn-primary">Manage Book</button>
             <button className="btn btn-error px-8 text-white">Delete</button>
           </div>
         </div>
