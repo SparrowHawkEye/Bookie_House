@@ -10,7 +10,7 @@ import Footer from "./components/Shared/Footer/Footer";
 import WareNav from "./components/Shared/WareNav/WareNav";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import MyItems from "./components/MyItems/MyItems";
+import MyItems from "./components/pages/MyItems/MyItems";
 import ManageItems from "./components/pages/ManageItems/ManageItems";
 import RequiredAuth from "./components/Shared/RequireAuth/RequireAuth";
 import AddItems from "./components/pages/AddItems/AddItems";
@@ -30,26 +30,26 @@ function App() {
             <Route
               path="/manageItems"
               element={
-                // <RequiredAuth>
+                <RequiredAuth>
                 <ManageItems />
-                // </RequiredAuth>
+                </RequiredAuth>
               }
             />
             <Route path="/item/:itemId" element={<ItemDetails />} />
             <Route
               path="/addItems"
               element={
-                // <RequiredAuth>
+                <RequiredAuth>
                 <AddItems />
-                // </RequiredAuth>
+                </RequiredAuth>
               }
             />
             <Route
               path="/myItems"
               element={
-                // <RequiredAuth>
+                <RequiredAuth>
                 <MyItems />
-                // </RequiredAuth>
+                </RequiredAuth>
               }
             />
             <Route path="/login" element={<Login />} />

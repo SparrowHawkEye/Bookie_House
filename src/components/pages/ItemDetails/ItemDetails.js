@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import useItemDetails from "../../hooks/userItemDetails";
 
 const ItemDetails = () => {
   const { itemId } = useParams();
-  const [item] = useItemDetails(itemId);
-  console.log(item);
+  const [item,setItem] = useItemDetails(itemId);
+  const [reload,setReload] = useState(false);
   const {
     _id,
     name,
@@ -17,6 +17,57 @@ const ItemDetails = () => {
     img,
     description,
   } = item;
+  useEffect(()=>{
+    const url = `http://localhost:5000/book/${itemId}`
+    fetch(url)
+    .then((res) => res.json())
+    .then((data) => setItem(data));
+  },[itemId,reload])
+
+  const inputHandler= e =>{
+    e.preventDefault();
+        const number = parseInt(e.target.number.value);
+        if(number>=1){ 
+        let quantityAdd = parseInt(quantity) + number;
+        console.log(quantity);
+        const url = `http://localhost:5000/book/${itemId}`;
+        fetch(url, {
+                method: "PUT",
+                body: JSON.stringify({
+                    quantity: quantityAdd
+                }),
+                headers: {
+                    "Content-type": "application/json; charset=UTF-8",
+                },
+            })
+            .then((res) => res.json())
+            .then((json) => {
+                setReload(!reload);
+                e.target.reset();
+            });
+        }
+  }
+
+  const deliveryHandler = (quantity) => {
+    if (quantity > 1) {
+        let quantityMinus = quantity - 1;
+
+        const url = `http://localhost:5000/book/${itemId}`;
+        fetch(url, {
+                method: "PUT",
+                body: JSON.stringify({
+                    quantity: quantityMinus
+                }),
+                headers: {
+                    "Content-type": "application/json; charset=UTF-8",
+                },
+            })
+            .then((res) => res.json())
+            .then((json) => {
+                setReload(!reload);
+            });
+    }
+};
   return (
     <section className="text-gray-700 body-font overflow-hidden bg-white">
       <div className="container px-5 py-24 mx-auto">
@@ -57,18 +108,20 @@ const ItemDetails = () => {
                   Quantity:
                   <span className="text-xl font-normal">{quantity}</span>
                 </div>
-                <button className="w-1/4 text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">
+                <button onClick={()=> deliveryHandler(quantity)} className="w-1/4 text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">
                   Delivered
                 </button>
+                <form onSubmit={inputHandler}>
                 <input
-                  type="number"
+                  type="number" name="number"
                   className="w-1/4 text-gray-700 font-bold bg-gray-200 border-1 py-2 px-6 focus:outline-none rounded"
                 />
                 <input
-                  type="button"
+                  type="submit"
                   value="Add Quantity"
-                  className="w-1/4 text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded"
+                  className="w-1/4 ml-3 text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded"
                 />
+                </form>
               </div>
             <Link to="/manageItems" className="btn btn-primary font-normal mt-3 px-[5.5rem] py-2">
               See All Books

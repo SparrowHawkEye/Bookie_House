@@ -7,7 +7,7 @@ const useItemDetails = (itemId) => {
       .then((res) => res.json())
       .then((data) => setItem(data));
   }, [itemId]);
-  return [item]
+  return [item,setItem]
 };
 
 export default useItemDetails;
