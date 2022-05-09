@@ -4,7 +4,7 @@ import { BiBookBookmark } from "react-icons/bi";
 import { signOut } from "firebase/auth";
 import auth from "../../../firebase.init";
 import { useAuthState } from "react-firebase-hooks/auth";
-import userImg from "../../../assets/user.png"
+import userImg from "../../../assets/user.png";
 
 const WareNav = () => {
   const [user] = useAuthState(auth);
@@ -21,21 +21,30 @@ const WareNav = () => {
         <div className="flex items-center md:order-2">
           <button
             type="button"
-            className="flex mr-3 text-md font-bold text-white align-middle text-center bg-blue-300 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+            className="flex mr-3 text-md font-bold text-white align-middle text-center bg-gray-300 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
             id="user-menu-button"
             aria-expanded="false"
             data-dropdown-toggle="dropdown"
           >
             <span className="sr-only">Open user menu</span>
             <div className="w-8 h-8 rounded-full">
-              {" "}
-              {user ? (
+              {
+                user ? (
+                  /*  (
+                <img className="rounded-full" src={user.photoURL} alt="" />
+              )  */
+                  <p className="text-center pt-1 text-white">
+                    {user?.email.substring(0, 1)}
+                  </p>
+                ) : (
+                  <img className="rounded-full" src={userImg} alt="" />
+                )
+                /* (
                 <p className="text-center text">
-                  {user?.user_name?.substring(0, 1)}
+                  {user?.auth.email?.substring(0, 1)}
                 </p>
-              ) : (
-                <img src={userImg} alt="" />
-              )}{" "}
+              ) */
+              }
             </div>
           </button>
           <div
@@ -51,15 +60,38 @@ const WareNav = () => {
               transform: "translate(1246px, 793px)",
             }}
           >
-            <div className="py-3 px-4">
-              <span className="block text-sm text-gray-900 dark:text-white">
-                {user?.name}
-              </span>
-              <span className="block text-sm font-medium text-gray-500 truncate dark:text-gray-400">
-                {user?.email}
-              </span>
-            </div>
+            {user && (
+              <div className="py-3 px-4">
+                <span className="block text-sm text-gray-900 dark:text-white">
+                  {user?.displayName}
+                </span>
+                <span className="block text-sm font-medium text-gray-500 truncate dark:text-gray-400">
+                  {user?.email}
+                </span>
+              </div>
+            )}
             <ul className="py-1" aria-labelledby="dropdown">
+              {
+                user && <>
+                <li>
+                <Link
+                  to="/manageItems"
+                  className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                >
+                  Manage Items
+                </Link>
+              </li>
+                <li>
+                <Link
+                  to="/myItems"
+                  className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                >
+                  Added Items
+                </Link>
+              </li>
+              </>
+              }
+
               {user ? (
                 <li>
                   <Link
@@ -149,24 +181,7 @@ const WareNav = () => {
                 About
               </NavLink>
             </li>
-            <li>
-              <NavLink
-                style={({ isActive }) => (isActive ? activeStyle : undefined)}
-                to="/login"
-                className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-sky-500 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-              >
-                Log In
-              </NavLink>
-            </li>
-            <li>
-              {/* <NavLink
-                style={({ isActive }) => (isActive ? activeStyle : undefined)}
-                to="/signup"
-                className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-sky-500 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-              >
-                Sign Up
-              </NavLink> */}
-            </li>
+            
           </ul>
         </div>
       </div>

@@ -14,6 +14,7 @@ import { toast } from "react-toastify";
 const SocialLogin = () => {
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
   const [signInWithGithub, user1, loading1, error1] = useSignInWithGithub(auth);
+
   const [token] = useToken(user || user1);
   const navigate = useNavigate();
   const location = useLocation();

@@ -10,6 +10,8 @@ const MyItems = () => {
   const [user] = useAuthState(auth);
   // console.log(user.email);
   const navigate = useNavigate();
+  // https://radiant-brook-38544.herokuapp.com/
+  // http://localhost:5000/
   useEffect(() => {
     const getItems = async () => {
       const email = user.email;

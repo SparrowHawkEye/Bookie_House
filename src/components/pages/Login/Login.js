@@ -182,7 +182,6 @@ const Login = () => {
                 name="remember_me"
                 type="checkbox"
                 className="h-4 w-4 bg-indigo-500 focus:ring-indigo-400 border-gray-300 rounded"
-                required
               />
               <label
                 htmlFor="remember_me"
