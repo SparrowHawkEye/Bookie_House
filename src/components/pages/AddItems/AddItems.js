@@ -44,7 +44,7 @@ const AddItems = () => {
             placeholder=" "
             required=""
             value={user?.email}
-            readOnly
+            disabled
           />
           <label
             htmlFor="floating_email"

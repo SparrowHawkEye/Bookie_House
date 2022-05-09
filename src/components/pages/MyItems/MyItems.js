@@ -1,7 +1,9 @@
+import { signOut } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
+import axiosPrivate from "../../hooks/axosPrivate";
 
 const MyItems = () => {
   const [items, setItems] = useState([]);
@@ -10,14 +12,17 @@ const MyItems = () => {
   const navigate = useNavigate();
   useEffect(() => {
     const getItems = async () => {
-      
-      const url = `http://localhost:5000/myItems?email=${user.email}`;
-      console.log(url);
+      const email = user.email;
+      const url = `http://localhost:5000/myItems?email=${email}`;
       try {
-        fetch(url)
-          .then((res) => res.json())
-          .then((data) => setItems(data));
-      } catch (error) {}
+        const { data } = await axiosPrivate.get(url);
+        setItems(data);
+      } catch (error) {
+        if (error.response.status === 401 || error.response.status === 403) {
+          signOut(auth);
+          navigate("/login");
+        }
+      }
     };
     getItems();
   }, []);

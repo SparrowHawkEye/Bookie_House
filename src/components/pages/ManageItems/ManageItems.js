@@ -1,8 +1,16 @@
-import React from 'react';
-import useItems from "../../hooks/useItems";
+import React, { useEffect, useState } from 'react';
+// import useItems from "../../hooks/useItems";
 import Item from './Item/Item';
 const ManageItems = () => {
-  const [items] = useItems([]);
+  const [reload,setReload] = useState(false);
+  const [items, setItems] = useState([]);
+  useEffect(() => {
+    const url = "http://localhost:5000/books"
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => setItems(data));
+      // setReload(!reload)
+  }, [reload]);
   return (
     <>
     <h2 className="text-5xl font-semibold text-center mt-10 text-gray-400">All Books in the House</h2>

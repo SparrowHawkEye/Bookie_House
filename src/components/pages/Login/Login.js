@@ -1,75 +1,124 @@
 // import axios from "axios";
-import React, { useRef, useState } from "react";
-// import { Button, Form } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
 import {
   useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
-  useSignInWithGithub,
-  useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
 
-import { FcGoogle } from "react-icons/fc";
-import { AiFillEye, AiFillEyeInvisible, AiOutlineGithub } from "react-icons/ai";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import PageTitle from "../../Shared/PageTitle/PageTitle";
 import useToken from "../../hooks/useToken";
+import { toast } from "react-toastify";
+import Loading from "../../Shared/Loading/Loading";
+import SocialLogin from "./SocialLogin";
 
 
 const Login = () => {
-  const emailRef = useRef("");
-  const passwordRef = useRef("");
+  const [showPass,setShowPass] = useState(false);
+  const [userInfo, setUserInfo] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+  const [errors, setErrors] = useState({
+    emailError: "",
+    passwordError: "",
+    generalError: "",
+  });
+
+  //authState hook
+  const [signInWithEmailAndPassword, user, loading, hookError] =
+    useSignInWithEmailAndPassword(auth);
+
+  //reset password
+  const [sendPasswordResetEmail, sending, error] =
+    useSendPasswordResetEmail(auth);
+  const [token] = useToken(user);
+
+  if (loading) {
+    <Loading />;
+  }
+
+  //redirecting the user after login
   const navigate = useNavigate();
   const location = useLocation();
-  const [signInWithEmailAndPassword, user, error] =
-    useSignInWithEmailAndPassword(auth);
-  const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
-  const [token] = useToken(user);
-  let from = location.state?.from?.pathname || "/";
-  const [signInWithGoogle, userGoogle, loadingGoogle, errorGoogle] =
-    useSignInWithGoogle(auth);
-  const [signInWithGithub, userGithub, loadingGithub, errorGithub] =
-    useSignInWithGithub(auth);
-    const [showPass, setShowPass] = useState(false);
-   let loadingElement;
-   let errorElement;
-  if (error || errorGoogle || errorGithub) {
-    errorElement = (
-      <p className="text-danger text-center">
-        Error: {error?.message}
-        {errorGoogle?.message}
-        {errorGithub?.message}
-      </p>
-    );
-  }
-  if (loadingGoogle || loadingGithub) {
-    loadingElement = <p className="text-warning text-center">Loading...</p>;
-  }
-  if (token) {
-    navigate(from, { replace: true });
-  }
+  const from = location.state?.from?.pathname || "/";
 
-  if (error) {
-    errorElement = (
-      <p className="text-danger text-center">Error: {error?.message}</p>
-    );
-  }
+  useEffect(() => {
+    if (token) {
+      toast.success("Login Success");
+      setTimeout(() => {
+        navigate(from);
+      }, 1000);
+    }
+  }, [token]);
 
-  if (token) {
-    navigate(from, { replace: true });
-  }
+  //get email
+  const handleEmail = (event) => {
+    const emailRegex = /\S+@\S+\.\S+/;
+    const validEmail = emailRegex.test(event.target.value);
+    if (validEmail) {
+      setUserInfo({ ...userInfo, email: event.target.value });
+      setErrors({ ...errors, emailError: "" });
+    } else {
+      setErrors({ ...errors, emailError: "Invalid Email" });
+      setUserInfo({ ...userInfo, email: "" });
+    }
+  };
 
+  //get password
+  const handlePassword = (event) => {
+    const passRegex = /.{6,}/;
+    const validPass = passRegex.test(event.target.value);
+    if (validPass) {
+      setUserInfo({ ...userInfo, password: event.target.value });
+      setErrors({ ...errors, passwordError: "" });
+    } else {
+      setErrors({
+        ...errors,
+        passwordError: "Password must be at least 6 characters",
+      });
+    }
+  };
+
+  //login auth
   const handleLogin = async (event) => {
     event.preventDefault();
-    const email = emailRef.current.value;
-    const password = passwordRef.current.value;
-    await signInWithEmailAndPassword(email, password);
+    await signInWithEmailAndPassword(userInfo.email, userInfo.password);
   };
-  const resetPassword = async () => {
-    const email = emailRef.current.value;
-    await sendPasswordResetEmail(email);
-    alert("Sent email");
+
+  //showing error message in toast
+  useEffect(() => {
+    if (hookError) {
+      switch (hookError?.code) {
+        case "auth/invalid-email":
+          toast.error("Invalid email");
+          break;
+        case "auth/wrong-password":
+          toast.error("invalid password");
+          break;
+        case "auth/user-not-found":
+          toast.error("user not found");
+          break;
+        default:
+          toast.error("something went wrong");
+          break;
+      }
+    }
+  }, [hookError]);
+
+  //reset password
+  const handleResetPassword = async () => {
+    if (userInfo.email) {
+      await sendPasswordResetEmail(userInfo.email);
+      toast("Password reset Email sent");
+    } else {
+      toast("Please enter your Email");
+    }
   };
+
   return (
     <div className=" flex justify-center p-8 sm:px-6 lg:px-8 items-center">
       <PageTitle title="Login" />
@@ -82,18 +131,7 @@ const Login = () => {
             Please sign in to your account
           </p>
         </div>
-        <div className="flex flex-row justify-center items-center space-x-3">
-          <span className="w-11 h-11 items-center justify-center inline-flex rounded-full font-bold text-lg  text-white  hover:bg-white hover:shadow-lg cursor-pointer transition ease-in duration-300">
-            <button onClick={() => signInWithGoogle()}>
-              <FcGoogle size={"24px"} />
-            </button>
-          </span>
-          <span className="w-11 h-11 items-center justify-center inline-flex rounded-full font-bold text-lg  text-black  hover:bg-gray-600 hover:text-white hover:shadow-lg cursor-pointer transition ease-in duration-300">
-            <button onClick={() => signInWithGithub()}>
-              <AiOutlineGithub size={"24px"} />
-            </button>
-          </span>
-        </div>
+       <SocialLogin/>
         <div className="flex items-center justify-center space-x-2">
           <span className="h-px w-16 bg-gray-300"></span>
           <span className="text-gray-500 font-normal">OR</span>
@@ -108,8 +146,8 @@ const Login = () => {
             <input
               className=" w-full text-base py-2 px-3 rounded border-b border-gray-300 focus:outline-none focus:border-indigo-500"
               type="email"
-              ref={emailRef}
-              // onBlur={handleEmail}
+              // ref={emailRef}
+              onBlur={handleEmail}
               placeholder="mail@gmail.com"
               required
             />
@@ -121,8 +159,8 @@ const Login = () => {
             <input
               className="w-full content-center text-base py-2 px-3 rounded border-b border-gray-300 focus:outline-none focus:border-indigo-500"
               type={showPass ? "text" : "password"}
-              ref={passwordRef}
-              // onBlur={handlePassword}
+              // ref={passwordRef}
+              onBlur={handlePassword}
               placeholder="Enter your password"
               required
             />
@@ -155,7 +193,7 @@ const Login = () => {
             </div>
             <div className="text-sm">
               <button
-                onClick={resetPassword}
+                onClick={handleResetPassword}
                 className="font-medium text-indigo-500 hover:text-red-500"
               >
                 Forgot your password?
