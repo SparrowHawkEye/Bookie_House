@@ -8,10 +8,9 @@ import axiosPrivate from "../../hooks/axosPrivate";
 const MyItems = () => {
   const [items, setItems] = useState([]);
   const [user] = useAuthState(auth);
-  // console.log(user.email);
+  
   const navigate = useNavigate();
-  // https://radiant-brook-38544.herokuapp.com/
-  // https://radiant-brook-38544.herokuapp.com/
+ 
   useEffect(() => {
     const getItems = async () => {
       const email = user.email;

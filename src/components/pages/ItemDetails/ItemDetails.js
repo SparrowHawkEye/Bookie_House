@@ -29,7 +29,7 @@ const ItemDetails = () => {
         const number = parseInt(e.target.number.value);
         if(number>=1){ 
         let quantityAdd = parseInt(quantity) + number;
-        console.log(quantity);
+        
         const url = `https://radiant-brook-38544.herokuapp.com/book/${itemId}`;
         fetch(url, {
                 method: "PUT",

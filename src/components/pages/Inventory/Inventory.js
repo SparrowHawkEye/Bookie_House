@@ -6,8 +6,7 @@ import HomeItem from "../Home/HomeItem/HomeItem";
 const Inventory = () => {
   const [items] = useItems([]);
   const homeItems = items.slice(5, 11);
-  console.log(items);
-  console.log(homeItems);
+  
   return (
     <div >
       <h2 className="text-5xl font-semibold text-center mb-5 text-gray-400">
