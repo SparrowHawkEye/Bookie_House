@@ -11,11 +11,11 @@ const MyItems = () => {
   // console.log(user.email);
   const navigate = useNavigate();
   // https://radiant-brook-38544.herokuapp.com/
-  // http://localhost:5000/
+  // https://radiant-brook-38544.herokuapp.com/
   useEffect(() => {
     const getItems = async () => {
       const email = user.email;
-      const url = `http://localhost:5000/myItems?email=${email}`;
+      const url = `https://radiant-brook-38544.herokuapp.com/myItems?email=${email}`;
       try {
         const { data } = await axiosPrivate.get(url);
         setItems(data);

@@ -9,7 +9,7 @@ const useToken = (user) => {
       const email = user?.user?.email;
       if (email) {
         const { data } = await axios.post(
-          `http://localhost:5000/login`,
+          `https://radiant-brook-38544.herokuapp.com/login`,
           { email }
         );
         setToken(data.accessToken);

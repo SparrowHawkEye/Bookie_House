@@ -25,7 +25,7 @@ const Item = ({ item }) => {
       confirmButtonText: "Yeahh ",
     }).then((result) => {
       if (result.isConfirmed) {
-        const url = `http://localhost:5000/book/${id}`;
+        const url = `https://radiant-brook-38544.herokuapp.com/book/${id}`;
         fetch(url, {
           method: "DELETE",
         })

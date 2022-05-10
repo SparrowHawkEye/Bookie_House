@@ -18,7 +18,7 @@ const ItemDetails = () => {
     description,
   } = item;
   useEffect(()=>{
-    const url = `http://localhost:5000/book/${itemId}`
+    const url = `https://radiant-brook-38544.herokuapp.com/book/${itemId}`
     fetch(url)
     .then((res) => res.json())
     .then((data) => setItem(data));
@@ -30,7 +30,7 @@ const ItemDetails = () => {
         if(number>=1){ 
         let quantityAdd = parseInt(quantity) + number;
         console.log(quantity);
-        const url = `http://localhost:5000/book/${itemId}`;
+        const url = `https://radiant-brook-38544.herokuapp.com/book/${itemId}`;
         fetch(url, {
                 method: "PUT",
                 body: JSON.stringify({
@@ -52,7 +52,7 @@ const ItemDetails = () => {
     if (quantity > 1) {
         let quantityMinus = quantity - 1;
 
-        const url = `http://localhost:5000/book/${itemId}`;
+        const url = `https://radiant-brook-38544.herokuapp.com/book/${itemId}`;
         fetch(url, {
                 method: "PUT",
                 body: JSON.stringify({
