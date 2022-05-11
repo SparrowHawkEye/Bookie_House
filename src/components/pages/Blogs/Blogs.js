@@ -4,7 +4,7 @@ import { Accordion } from "flowbite-react";
 
 const Blogs = () => {
   return (
-    <div className="w-11/12 mx-auto">
+    <div className="w-9/12 my-20 mx-auto">
       <PageTitle title="Blogs" />
 
       <Accordion flush={true}>

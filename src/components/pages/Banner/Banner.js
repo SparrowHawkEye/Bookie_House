@@ -3,7 +3,7 @@ import soulImage from "../../../assets/soul.jpg";
 
 const Banner = () => {
   return (
-    <div className="flex justify-around flex-col md:flex-row items-center bg-slate-200 my-10 py-10 lg:px-4 lg:py-10">
+    <div className="flex justify-around flex-col md:flex-row items-center bg-slate-200 my-10 py-10 lg:px-4 lg:py-10 rounded">
       <div className=" w-[80%] lg:w-[50%] h-[100%] animate__animated animate__bounceInLeft">
         <h1 className="text-5xl font-medium text-green-400">
           A Book Can Change Your Life

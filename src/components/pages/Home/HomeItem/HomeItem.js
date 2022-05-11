@@ -10,14 +10,14 @@ const HomeItem = ({ homeItem }) => {
   return (
     <>
       <div
-        className="card card-side bg-base-200 justify-between  shadow-xl"
+        className="card card-side bg-base-200 justify-between rounded-md shadow-xl"
         data-aos="zoom-in-down"
       >
         <figure className="h-full">
           <img src={img} alt="Book" />
         </figure>
-        <div className="card-body flex-grow-0 justify-center p-0 mr-14 my-3  space-y-0">
-          <p>Name: {name}</p>
+        <div className="card-body p-[1rem]">
+          <p className="card-title">Name: {name}</p>
           <p>Author: {author}</p>
           <p>Publisher: {publisher}</p>
           <p>ISBN: {ISBN}</p>
@@ -25,7 +25,7 @@ const HomeItem = ({ homeItem }) => {
           <p>No of Pages: {no_of_page}</p>
 
           <div
-            className="flex justify-center card-actions"
+            className="flex justify-center card-actions mt-1"
             data-aos="zoom-out-down"
           >
             <button

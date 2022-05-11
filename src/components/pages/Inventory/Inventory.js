@@ -8,8 +8,8 @@ const Inventory = () => {
   const homeItems = items.slice(5, 11);
   
   return (
-    <div >
-      <h2 className="text-5xl font-semibold text-center mb-5 text-gray-400">
+    <div className="my-20">
+      <h2 className="text-5xl font-semibold mb-20 text-center text-gray-400">
         Books in the House
       </h2>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4" >
@@ -17,7 +17,7 @@ const Inventory = () => {
           <HomeItem key={homeItem._id} homeItem={homeItem} />
         ))}
       </div>
-      <div className="flex justify-center my-5">
+      <div className="flex justify-center mt-14">
         <Link to="/manageItems" className="btn btn-primary px-10 py-3">
           See All Books
         </Link>

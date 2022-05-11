@@ -45,7 +45,7 @@ const Item = ({ item }) => {
   return (
     <>
       <div
-        className="card card-side bg-base-100 shadow-xl"
+        className="card card-side rounded-md bg-base-100 shadow-xl"
         data-aos="zoom-in-down"
       >
         <figure className="h-full">
@@ -64,7 +64,7 @@ const Item = ({ item }) => {
           <p>Quantity: {quantity<1?"Sold 🚫":quantity }</p>
           <p>No of Pages: {no_of_page}</p>
 
-          <div className="card-actions" data-aos="zoom-out-down">
+          <div className="card-actions mt-1" data-aos="zoom-out-down">
             <button
               onClick={() => navigateToItemDetails(_id)}
               className="btn btn-primary"

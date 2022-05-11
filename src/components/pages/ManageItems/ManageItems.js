@@ -14,28 +14,28 @@ const ManageItems = () => {
       });
   }, [reload]);
   return (
-    <>
-      <div className="flex justify-center my-5">
-        <Link
+    <div className="mb-20">
+      <div className=" my-20">
+        {/* <Link
           to="/addItems"
           className="btn btn-success text-white px-10 py-3 ml-5"
         >
           Add Books
-        </Link>
+        </Link> */}
+        <h2 className="text-5xl font-semibold text-center text-gray-400">
+          All Books in the House
+        </h2>
+        <p className="text-lg font-semibold text-center mt-2 mb-10 text-gray-400">
+          All Books in the warehouse is listed here
+        </p>
       </div>
 
-      <h2 className="text-5xl font-semibold text-center mt-10 text-gray-400">
-        All Books in the House
-      </h2>
-      <h2 className="text-xl font-semibold text-center mt-2 mb-10 text-gray-400">
-        All Books in the warehouse is listed here
-      </h2>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {items.map((item) => (
           <Item key={item._id} item={item} />
         ))}
       </div>
-    </>
+    </div>
   );
 };
 
