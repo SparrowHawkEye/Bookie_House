@@ -40,12 +40,6 @@ const Footer = () => {
               <Link to="https://www.linkedin.com/in/maksudur-rahman-a9733a161/" className="hover:text-green-400 text-lg">
                 <FaLinkedinIn />
               </Link>
-              {/* <Link
-                to="#"
-                onClick={() => (window.location = "mailto:makh0043@gmail.com")} className="hover:text-green-400 text-lg"
-              >
-                <MdAttachEmail />
-              </Link> */}
             </div>
           </li>
         </ul>

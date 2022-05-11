@@ -1,7 +1,7 @@
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import auth from "../../../firebase.init";
 
@@ -9,7 +9,6 @@ const AddItems = () => {
   const [user] = useAuthState(auth);
   const { email } = user;
   const { register, handleSubmit, reset } = useForm();
-  const navigate = useNavigate();
 
   const handleAddProduct = (data) => {
     const url = `https://radiant-brook-38544.herokuapp.com/book`;

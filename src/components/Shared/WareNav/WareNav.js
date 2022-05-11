@@ -9,7 +9,6 @@ import userImg from "../../../assets/user.png";
 const WareNav = () => {
   const [user] = useAuthState(auth);
   let activeStyle = {
-    // textDecoration: "underline",
     color: "#0EA5E9",
   };
   return (
@@ -71,26 +70,26 @@ const WareNav = () => {
               </div>
             )}
             <ul className="py-1" aria-labelledby="dropdown">
-              {
-                user && <>
-                <li>
-                <Link
-                  to="/manageItems"
-                  className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                >
-                  Manage Items
-                </Link>
-              </li>
-                <li>
-                <Link
-                  to="/myItems"
-                  className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                >
-                  Added Items
-                </Link>
-              </li>
-              </>
-              }
+              {user && (
+                <>
+                  <li>
+                    <Link
+                      to="/manageItems"
+                      className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                    >
+                      Manage Items
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/myItems"
+                      className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                    >
+                      Added Items
+                    </Link>
+                  </li>
+                </>
+              )}
 
               {user ? (
                 <li>
@@ -181,7 +180,6 @@ const WareNav = () => {
                 About
               </NavLink>
             </li>
-            
           </ul>
         </div>
       </div>

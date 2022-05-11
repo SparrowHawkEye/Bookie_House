@@ -8,9 +8,9 @@ import axiosPrivate from "../../hooks/axosPrivate";
 const MyItems = () => {
   const [items, setItems] = useState([]);
   const [user] = useAuthState(auth);
-  
+
   const navigate = useNavigate();
- 
+
   useEffect(() => {
     const getItems = async () => {
       const email = user.email;

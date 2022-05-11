@@ -114,18 +114,6 @@ const Signup = () => {
           <h2 className="mt-6 text-3xl font-bold text-gray-900">Welcome!</h2>
           <p className="mt-2 text-sm text-gray-600">Please sign up a account</p>
         </div>
-        {/* <div className="flex flex-row justify-center items-center space-x-3">
-          <span className="w-11 h-11 items-center justify-center inline-flex rounded-full font-bold text-lg  text-white  hover:bg-white hover:shadow-lg cursor-pointer transition ease-in duration-300">
-            <button onClick={() => signInWithGoogle()}>
-              <FcGoogle size={"24px"} />
-            </button>
-          </span>
-          <span className="w-11 h-11 items-center justify-center inline-flex rounded-full font-bold text-lg  text-black  hover:bg-gray-600 hover:text-white hover:shadow-lg cursor-pointer transition ease-in duration-300">
-            <button onClick={() => signInWithGitHub()}>
-              <AiOutlineGithub size={"24px"} />
-            </button>
-          </span>
-        </div> */}
         <div className="flex items-center justify-center space-x-2">
           <span className="h-px w-16 bg-gray-300"></span>
           <span className="text-gray-500 font-normal">OR</span>
@@ -140,7 +128,6 @@ const Signup = () => {
             <input
               className=" w-full text-base py-2 px-3 rounded border-b border-gray-300 focus:outline-none focus:border-indigo-500"
               type="email"
-              // ref={emailRef}
               onBlur={handleEmail}
               placeholder="mail@gmail.com"
               required
@@ -153,7 +140,6 @@ const Signup = () => {
             <input
               className="w-full content-center text-base py-2 px-3 rounded border-b border-gray-300 focus:outline-none focus:border-indigo-500"
               type={showPass ? "text" : "password"}
-              // ref={passwordRef}
               onBlur={handlePassword}
               placeholder="Enter your password"
               required
@@ -176,7 +162,6 @@ const Signup = () => {
             <input
               className="w-full content-center text-base py-2 px-3 rounded border-b border-gray-300 focus:outline-none focus:border-indigo-500"
               type={showPass ? "text" : "password"}
-              // ref={passwordRef}
               onBlur={handleConfirmPassword}
               placeholder="Enter your password"
               required

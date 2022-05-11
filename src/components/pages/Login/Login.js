@@ -1,4 +1,3 @@
-// import axios from "axios";
 import React, { useEffect, useState } from "react";
 import {
   useSendPasswordResetEmail,
@@ -14,9 +13,8 @@ import { toast } from "react-toastify";
 import Loading from "../../Shared/Loading/Loading";
 import SocialLogin from "./SocialLogin";
 
-
 const Login = () => {
-  const [showPass,setShowPass] = useState(false);
+  const [showPass, setShowPass] = useState(false);
   const [userInfo, setUserInfo] = useState({
     name: "",
     email: "",
@@ -28,11 +26,11 @@ const Login = () => {
     generalError: "",
   });
 
-  //authState hook
+  //** authState hook */
   const [signInWithEmailAndPassword, user, loading, hookError] =
     useSignInWithEmailAndPassword(auth);
 
-  //reset password
+  //** reset password */
   const [sendPasswordResetEmail, sending, error] =
     useSendPasswordResetEmail(auth);
   const [token] = useToken(user);
@@ -41,7 +39,7 @@ const Login = () => {
     <Loading />;
   }
 
-  //redirecting the user after login
+  //** redirecting the user after login */
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
@@ -55,7 +53,7 @@ const Login = () => {
     }
   }, [token]);
 
-  //get email
+  //** get email */
   const handleEmail = (event) => {
     const emailRegex = /\S+@\S+\.\S+/;
     const validEmail = emailRegex.test(event.target.value);
@@ -68,7 +66,7 @@ const Login = () => {
     }
   };
 
-  //get password
+  //** get password */
   const handlePassword = (event) => {
     const passRegex = /.{6,}/;
     const validPass = passRegex.test(event.target.value);
@@ -83,13 +81,13 @@ const Login = () => {
     }
   };
 
-  //login auth
+  //** login auth */
   const handleLogin = async (event) => {
     event.preventDefault();
     await signInWithEmailAndPassword(userInfo.email, userInfo.password);
   };
 
-  //showing error message in toast
+  //** showing error message in toast */
   useEffect(() => {
     if (hookError) {
       switch (hookError?.code) {
@@ -109,7 +107,7 @@ const Login = () => {
     }
   }, [hookError]);
 
-  //reset password
+  //** reset password */
   const handleResetPassword = async () => {
     if (userInfo.email) {
       await sendPasswordResetEmail(userInfo.email);
@@ -131,7 +129,7 @@ const Login = () => {
             Please sign in to your account
           </p>
         </div>
-       <SocialLogin/>
+        <SocialLogin />
         <div className="flex items-center justify-center space-x-2">
           <span className="h-px w-16 bg-gray-300"></span>
           <span className="text-gray-500 font-normal">OR</span>
@@ -146,7 +144,6 @@ const Login = () => {
             <input
               className=" w-full text-base py-2 px-3 rounded border-b border-gray-300 focus:outline-none focus:border-indigo-500"
               type="email"
-              // ref={emailRef}
               onBlur={handleEmail}
               placeholder="mail@gmail.com"
               required
@@ -159,7 +156,6 @@ const Login = () => {
             <input
               className="w-full content-center text-base py-2 px-3 rounded border-b border-gray-300 focus:outline-none focus:border-indigo-500"
               type={showPass ? "text" : "password"}
-              // ref={passwordRef}
               onBlur={handlePassword}
               placeholder="Enter your password"
               required

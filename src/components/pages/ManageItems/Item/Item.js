@@ -7,7 +7,6 @@ const Item = ({ item }) => {
   const { _id, name, ISBN, publisher, author, no_of_page, quantity, img } =
     item;
   const navigate = useNavigate();
-  // const [reload, setReload] = useState(false);
   const [items, setItems] = useItems();
   const navigateToItemDetails = (id) => {
     navigate(`/item/${id}`);
@@ -17,7 +16,6 @@ const Item = ({ item }) => {
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure to delete this?",
-     /*  text: "Please don't delete any product if you are here just for visiting. It will also delete from the database. Consider creating you own product and then delete 🥶", */
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -63,7 +61,7 @@ const Item = ({ item }) => {
           <p>Author: {author}</p>
           <p>Publisher: {publisher}</p>
           <p>ISBN: {ISBN}</p>
-          <p>Quantity: {quantity}</p>
+          <p>Quantity: {quantity<1?"Sold 🚫":quantity }</p>
           <p>No of Pages: {no_of_page}</p>
 
           <div className="card-actions" data-aos="zoom-out-down">

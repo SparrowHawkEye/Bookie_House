@@ -23,7 +23,6 @@ const NotFound = () => {
           </div>
           <div className="mt-4 w-[80%]">
             <img
-              // src="https://www.elegantthemes.com/blog/wp-content/uploads/2020/02/000-404.png"
               src="https://i1.wp.com/media.giphy.com/media/8L0Pky6C83SzkzU55a/source.gif?w=525&ssl=1"
               alt="img"
               className="object-cover w-full h-full"

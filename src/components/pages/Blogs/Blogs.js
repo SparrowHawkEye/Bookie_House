@@ -121,7 +121,7 @@ const Blogs = () => {
               that the content hasn't been tampered with.
             </p>
             <h3 className="font-semibold my-3 text-lg">How JWT works:</h3>
-            {/* <p className="mb-2 text-gray-500 dark:text-gray-400">In authentication, when the user successfully logs in using their credentials, a JSON Web Token will be returned. As the token is private credential this token need to be kept secret to prevent security issue by keeping them for a shorter time it's need. Whenever the user wants to access a protected route or resource, the user agent should send the JWT, typically in the Authorization header using the Bearer schema. The content of the header should look like the following: <br /><code className="p-2 mx-auto inline-block my-3 bg-gray-100 rounded-lg">Authorization: Bearer 'token'</code><br /> This can be, in certain cases, a stateless authorization mechanism. The server's protected routes will check for a valid JWT in the Authorization header, and if it's present, the user will be allowed to access protected resources. If the JWT contains the necessary data, the need to query the database for certain operations may be reduced, though this may not always be the case.</p> */}
+           
             <ol className="mb-2 space-y-3 text-gray-500 dark:text-gray-400">
               <li>
                 <span className="font-bold text-lg">1</span>. The application or

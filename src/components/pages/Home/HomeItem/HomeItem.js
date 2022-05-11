@@ -21,7 +21,7 @@ const HomeItem = ({ homeItem }) => {
           <p>Author: {author}</p>
           <p>Publisher: {publisher}</p>
           <p>ISBN: {ISBN}</p>
-          <p>Quantity: {quantity}</p>
+          <p>Quantity: {quantity<1?"Sold 🚫":quantity }</p>
           <p>No of Pages: {no_of_page}</p>
 
           <div
