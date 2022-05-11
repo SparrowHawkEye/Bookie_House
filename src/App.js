@@ -20,7 +20,7 @@ import ProgressBar from "react-scroll-progress-bar";
 function App() {
   return (
     <div>
-      <ProgressBar bgcolor="#31C48D" />
+      <ProgressBar />
       <div className="max-w-[95vw] mx-auto">
         <div className="flex flex-col min-h-[75vh]">
           <WareNav />

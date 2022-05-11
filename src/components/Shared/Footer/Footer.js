@@ -10,7 +10,7 @@ const Footer = () => {
         <Link to="/" className="flex items-center mr-3 h-6 sm:h-9 text-2xl">
           <BiBookBookmark color="orenge-red" /> &nbsp; Bookie House
         </Link>
-        <ul className="flex flex-wrap items-center mb-6 text-sm text-gray-500 sm:mb-0 dark:text-gray-400">
+        <ul className="flex flex-wrap items-center mb-6 mt-3 lg:mt-0 text-sm text-gray-500 sm:mb-0 dark:text-gray-400">
           <li>
             <Link to="/" className="mr-4 hover:underline md:mr-6 ">
               Home
