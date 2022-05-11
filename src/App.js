@@ -15,10 +15,12 @@ import ManageItems from "./components/pages/ManageItems/ManageItems";
 import RequiredAuth from "./components/Shared/RequireAuth/RequireAuth";
 import AddItems from "./components/pages/AddItems/AddItems";
 import ItemDetails from "./components/pages/ItemDetails/ItemDetails";
+import ProgressBar from "react-scroll-progress-bar";
 
 function App() {
   return (
-    <main>
+    <div>
+      <ProgressBar bgcolor="#31C48D" />
       <div className="max-w-[95vw] mx-auto">
         <div className="flex flex-col min-h-[75vh]">
           <WareNav />
@@ -31,16 +33,23 @@ function App() {
               path="/manageItems"
               element={
                 <RequiredAuth>
-                <ManageItems />
+                  <ManageItems />
                 </RequiredAuth>
               }
             />
-            <Route path="/item/:itemId" element={<ItemDetails />} />
+            <Route
+              path="/item/:itemId"
+              element={
+                <RequiredAuth>
+                  <ItemDetails />
+                </RequiredAuth>
+              }
+            />
             <Route
               path="/addItems"
               element={
                 <RequiredAuth>
-                <AddItems />
+                  <AddItems />
                 </RequiredAuth>
               }
             />
@@ -48,7 +57,7 @@ function App() {
               path="/myItems"
               element={
                 <RequiredAuth>
-                <MyItems />
+                  <MyItems />
                 </RequiredAuth>
               }
             />
@@ -60,7 +69,7 @@ function App() {
         <Footer />
       </div>
       <ToastContainer />
-    </main>
+    </div>
   );
 }
 

@@ -1,17 +1,16 @@
 import React from "react";
-// import ReactDOM from 'react-dom/client';
 import ReactDom from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "flowbite";
-import 'animate.css';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import "animate.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { BrowserRouter } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 AOS.init();
-// const root = ReactDOM.createRoot(document.getElementById('root'));
+
 ReactDom.render(
   <HelmetProvider>
     <BrowserRouter>
