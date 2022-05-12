@@ -16,9 +16,22 @@ import RequiredAuth from "./components/Shared/RequireAuth/RequireAuth";
 import AddItems from "./components/pages/AddItems/AddItems";
 import ItemDetails from "./components/pages/ItemDetails/ItemDetails";
 import ProgressBar from "react-scroll-progress-bar";
+import { useEffect, useState } from "react";
+import Loading from "./components/Shared/Loading/Loading";
 
 function App() {
-  return (
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    // Wait for 1.5 seconds
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1500);
+  }, []);
+  return isLoading ? (
+    <div className="w-full h-screen flex justify-center items-center flex-col">
+      <Loading />
+    </div>
+  ) : (
     <div>
       <ProgressBar />
       <div className="max-w-[95vw] mx-auto">
