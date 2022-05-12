@@ -2,6 +2,8 @@
 
 ## [Live Site Link](https://bookie-house.web.app/)
 
+## [Stack Overflow Link](https://stackoverflow.com/questions/72074501/flowbite-navbar-hamburger-not-working-on-chrome-browser/72081160#72081160)
+
 > About this project:
 
 - This Project is a Site for managing a book WareHouse name as Bookie House.
