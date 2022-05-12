@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Item from "./Item/Item";
 const ManageItems = () => {
   const [reload, setReload] = useState(false);
@@ -16,16 +16,10 @@ const ManageItems = () => {
   return (
     <div className="mb-20">
       <div className=" my-20">
-        {/* <Link
-          to="/addItems"
-          className="btn btn-success text-white px-10 py-3 ml-5"
-        >
-          Add Books
-        </Link> */}
         <h2 className="text-5xl font-semibold text-center text-gray-400">
           All Books in the House
         </h2>
-        <p className="text-lg font-semibold text-center mt-2 mb-10 text-gray-400">
+        <p className="text-center mt-2 mb-10 text-gray-400 border_bottom">
           All Books in the warehouse is listed here
         </p>
       </div>

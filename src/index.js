@@ -7,9 +7,14 @@ import "flowbite";
 import "animate.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 import { BrowserRouter } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
+import { loadAnimation } from "lottie-web";
+import { defineLordIconElement } from "lord-icon-element";
 AOS.init();
+defineLordIconElement(loadAnimation);
 
 ReactDom.render(
   <HelmetProvider>

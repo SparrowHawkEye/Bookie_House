@@ -1,0 +1,11 @@
+.border_bottom:after {
+  content: "";
+  display: block;
+  width: 10rem;
+  max-width: 10rem;
+  height: 3px;
+  margin-top: 10px;
+  background: #d61f69;
+  margin: 1rem auto;
+  text-align: center;
+}

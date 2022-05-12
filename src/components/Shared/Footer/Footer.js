@@ -28,36 +28,48 @@ const Footer = () => {
           </li>
           <li>
             <div className="flex space-x-3">
-              <Link to="https://www.facebook.com/ami1dukhi/" className="hover:text-green-400 text-lg">
+              <a
+                href="https://www.facebook.com/ami1dukhi/" target="_blank"
+                className="hover:text-green-400 text-lg" rel="noreferrer"
+              >
                 <FaFacebookF />
-              </Link>
-              <Link to="https://twitter.com/SparrowHawk_Eye" className="hover:text-green-400 text-lg">
+              </a>
+              <a
+                href="https://twitter.com/SparrowHawk_Eye" target="_blank"
+                className="hover:text-green-400 text-lg" rel="noreferrer"
+              >
                 <FaTwitter />
-              </Link>
-              <Link to="https://github.com/SparrowHawkEye" className="hover:text-green-400 text-lg">
+              </a>
+              <a
+                href="https://github.com/SparrowHawkEye" target="_blank" rel="noreferrer"
+                className="hover:text-green-400 text-lg" 
+              >
                 <FaGithub />
-              </Link>
-              <Link to="https://www.linkedin.com/in/maksudur-rahman-a9733a161/" className="hover:text-green-400 text-lg">
+              </a>
+              <a
+                href="https://www.linkedin.com/in/maksudur-rahman-a9733a161/"
+                 target="_blank" rel="noreferrer"
+                className="hover:text-green-400 text-lg"
+              >
                 <FaLinkedinIn />
-              </Link>
+              </a>
             </div>
           </li>
         </ul>
       </div>
       <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-2" />
       <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">
-        © 2022{" "}
-        <Link to={" "} className="hover:underline hover:text-green-400">
+        © 2022
+        <Link to="/" className="hover:underline hover:text-green-400">
           Bookie House
         </Link>
         <small className="mx-1">
-          by Maksud aka{" "}
+          by Maksud aka
           <Link
             to="https://github.com/SparrowHawkEye"
             className="hover:underline hover:text-green-400"
           >
-            {" "}
-            SparrowHawkEye.{" "}
+            SparrowHawkEye.
           </Link>
         </small>
         All Rights Reserved.

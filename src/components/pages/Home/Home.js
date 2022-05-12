@@ -2,6 +2,8 @@ import React from "react";
 import PageTitle from "../../Shared/PageTitle/PageTitle";
 import Banner from "../Banner/Banner";
 import Inventory from "../Inventory/Inventory";
+import PopularBooks from "../PopularBooks/PopularBooks";
+import TopBooks from "../TopProduct/TopBooks";
 
 const Home = () => {
   return (
@@ -9,6 +11,8 @@ const Home = () => {
       <PageTitle title="Home"/>
       <Banner/>
       <Inventory/>
+      <TopBooks/>
+      <PopularBooks/>
     </div>
   );
 };
