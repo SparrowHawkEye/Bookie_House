@@ -113,7 +113,7 @@ const ItemDetails = () => {
                 </div>
                 <button
                   onClick={() => deliveryHandler(quantity)}
-                  className="w-1/4 text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded"
+                  className="w-1/2 lg:w-1/4 text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded"
                 >
                   Delivered
                 </button>
@@ -126,7 +126,7 @@ const ItemDetails = () => {
                   <input
                     type="submit"
                     value="Add Quantity"
-                    className="w-1/4 ml-3 text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded"
+                    className="w-1/2 lg:w-1/4 ml-3 text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded"
                   />
                 </form>
               </div>
