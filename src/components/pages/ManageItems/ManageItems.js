@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 import Item from "./Item/Item";
 const ManageItems = () => {
   const [reload, setReload] = useState(false);
@@ -14,7 +15,15 @@ const ManageItems = () => {
       });
   }, [reload]);
   return (
-    <div className="mb-20">
+<div>
+    <div className="flex justify-center my-14">
+      <Link
+        to="/addItems"
+        className="btn btn-success text-white px-10 py-3 ml-5"
+      >
+        Add Books
+      </Link>
+      </div>
       <div className=" my-20">
         <h2 className="text-5xl font-semibold text-center text-gray-400">
           All Books in the House
