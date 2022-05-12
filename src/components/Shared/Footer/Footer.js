@@ -29,26 +29,33 @@ const Footer = () => {
           <li>
             <div className="flex space-x-3">
               <a
-                href="https://www.facebook.com/ami1dukhi/" target="_blank"
-                className="hover:text-green-400 text-lg" rel="noreferrer"
+                href="https://www.facebook.com/ami1dukhi/"
+                target="_blank"
+                className="hover:text-green-400 text-lg"
+                rel="noreferrer"
               >
                 <FaFacebookF />
               </a>
               <a
-                href="https://twitter.com/SparrowHawk_Eye" target="_blank"
-                className="hover:text-green-400 text-lg" rel="noreferrer"
+                href="https://twitter.com/SparrowHawk_Eye"
+                target="_blank"
+                className="hover:text-green-400 text-lg"
+                rel="noreferrer"
               >
                 <FaTwitter />
               </a>
               <a
-                href="https://github.com/SparrowHawkEye" target="_blank" rel="noreferrer"
-                className="hover:text-green-400 text-lg" 
+                href="https://github.com/SparrowHawkEye"
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-green-400 text-lg"
               >
                 <FaGithub />
               </a>
               <a
                 href="https://www.linkedin.com/in/maksudur-rahman-a9733a161/"
-                 target="_blank" rel="noreferrer"
+                target="_blank"
+                rel="noreferrer"
                 className="hover:text-green-400 text-lg"
               >
                 <FaLinkedinIn />
@@ -60,7 +67,7 @@ const Footer = () => {
       <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-2" />
       <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">
         © 2022
-        <Link to="/" className="hover:underline hover:text-green-400">
+        <Link to="/" className="hover:underline hover:text-green-400 ml-1">
           Bookie House
         </Link>
         <small className="mx-1">

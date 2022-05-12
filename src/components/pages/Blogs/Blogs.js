@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PageTitle from "../../Shared/PageTitle/PageTitle";
 import { Accordion } from "flowbite-react";
+import Loading from "../../Shared/Loading/Loading";
 
 const Blogs = () => {
-  return (
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    // Wait for 1.5 seconds
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 500);
+  }, []);
+  return isLoading ? (
+    <div className="w-full h-screen flex justify-center items-center flex-col">
+      <Loading />
+    </div>
+  ) : (
     <div className="w-9/12 my-20 mx-auto">
       <PageTitle title="Blogs" />
 

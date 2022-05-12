@@ -1,7 +1,9 @@
 import React from "react";
 
-const MySingleItem = ({item}) => {
-  const {name,publisher,author,no_of_page,price,quantity,ISBN} = (item)
+const MySingleItem = ({item, handleDelete}) => {
+  
+
+  const {_id,name,publisher,author,no_of_page,price,quantity,ISBN} = (item)
   return (
     <>
       <tr>
@@ -33,6 +35,18 @@ const MySingleItem = ({item}) => {
         </td>
         <td className="p-2 whitespace-nowrap text-green-500">
           <div className="text-lg text-center">{quantity}</div>
+        </td>
+        <td className="p-2 whitespace-nowrap text-green-500">
+        <button
+              onClick={() => handleDelete(_id)}
+              className="btn btn-warning inline p-0 bg-white border-0 hover:bg-white"
+            >
+              <lord-icon
+    src="https://cdn.lordicon.com/rivoakkk.json"
+    trigger="click"
+    style={{"width":"36px","height":"36px"}}>
+</lord-icon>
+            </button>
         </td>
       </tr>
     </>

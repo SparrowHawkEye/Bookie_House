@@ -1,7 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Loading from "../../Shared/Loading/Loading";
 import PageTitle from "../../Shared/PageTitle/PageTitle";
 const About = () => {
-  return (
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    // Wait for 1.5 seconds
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 500);
+  }, []);
+  return isLoading ? (
+    <div className="w-full h-screen flex justify-center items-center flex-col">
+      <Loading />
+    </div>
+  ) : (
     <>
       <PageTitle title="About" />
       <div className="container my-20 mx-auto border_bottom ">

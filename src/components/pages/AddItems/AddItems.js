@@ -30,6 +30,11 @@ const AddItems = () => {
 
   return (
     <div className="w-1/2 mx-auto">
+      <div className=" my-10">
+        <h2 className="text-5xl font-semibold text-center text-gray-400 border_bottom">
+          Add Your Books in the House
+        </h2>
+      </div>
       <form onSubmit={handleSubmit(handleAddProduct)}>
         <div className="relative z-0 w-full mb-6 group">
           <input
